@@ -1,0 +1,45 @@
+{
+    "name": "smohring/cearch-pro-bundle",
+    "type": "contao-bundle",
+    "description": "Contao CearchPro for Contao 4",
+    "license": "Creative Commons Attribution-ShareAlike 4.0 International License",
+    "authors": [
+        {
+            "name": "Steffen Mohring",
+            "homepage": "https://github.com/smohring"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "symfony/framework-bundle": "^3.3",
+        "contao/core-bundle": "^4.4"
+    },
+    "replace": {
+        "feedbackmedia/contao-cearch-pro": "<=1.0.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Smohring\\CearchProBundle\\": "src/"
+        },
+        "classmap": [
+            "src/Resources/contao/"
+        ],
+        "exclude-from-classmap": [
+            "src/Resources/contao/config/",
+            "src/Resources/contao/dca/",
+            "src/Resources/contao/languages/",
+            "src/Resources/contao/templates/"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "support": {
+        "email": "me@steffenmohring.de",
+        "issues": "https://github.com/smohring/cearch-pro-bundle/issues",
+        "source": "https://github.com/smohring/cearch-pro-bundle"
+    },
+    "extra": {
+        "contao-manager-plugin": "Smohring\\CearchProBundle\\ContaoManager\\Plugin"
+    }
+}

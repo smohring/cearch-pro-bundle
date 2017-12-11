@@ -1,0 +1,48 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+  <form<?php if ($this->action): ?> action="<?= $this->action ?>"<?php endif; ?> method="get">
+    <div class="formbody">
+      <div class="widget widget-text">
+        <label for="ctrl_keywords_<?= $this->uniqueId ?>" class="invisible"><?= $this->keywordLabel ?></label>
+        <input type="search" name="keywords" id="ctrl_keywords_<?= $this->uniqueId ?>" class="text" value="<?= $this->keyword ?>">
+      </div>
+      <div class="widget widget-submit">
+        <button type="submit" id="ctrl_submit_<?= $this->uniqueId ?>" class="submit"><?= $this->search ?></button>
+      </div>
+      <?php if ($this->advanced): ?>
+        <div class="widget widget-radio">
+          <fieldset class="radio_container">
+            <legend class="invisible"><?= $this->optionsLabel ?></legend>
+            <span><input type="radio" name="query_type" id="matchAll_<?= $this->uniqueId ?>" class="radio" value="and"<?php if ($this->queryType == 'and'): ?> checked="checked"<?php endif; ?>> <label for="matchAll_<?= $this->uniqueId ?>"><?= $this->matchAll ?></label></span>
+            <span><input type="radio" name="query_type" id="matchAny_<?= $this->uniqueId ?>" class="radio" value="or"<?php if ($this->queryType == 'or'): ?> checked="checked"<?php endif; ?>> <label for="matchAny_<?= $this->uniqueId ?>"><?= $this->matchAny ?></label></span>
+          </fieldset>
+        </div>
+      <?php endif; ?>
+    </div>
+  </form>
+
+  <?php if ($this->header): ?>
+    <p class="header"><?= $this->header ?> (<?= $this->duration ?>)</p>
+  <?php endif; ?>
+
+  <?= $this->results . $this->pagination ?>
+
+<?php if (! empty($this->moreResults) ): ?>
+    <?php $url = strtok($this->Environment->url.$this->Environment->requestUri,'?');?>
+    <div class="info" style="margin-top:50px;">
+        <p style="font-size:24px;">Meinten Sie vielleicht:</p>
+        <?php foreach ( $this->moreResults as $result ): ?>
+            <?php if ( is_array( $result ) ): ?>
+                <?php foreach ( $result as $resInner ): ?>
+                    <a href="<?php echo $url ?>?keywords=<?php echo $resInner['trans']; ?>"><?php echo $resInner['org']; ?></a>&nbsp;
+                <?php endforeach ?>
+            <?php else: ?>
+                <a href="<?php echo $url ?>?keywords=<?php echo $resInner['trans']; ?>"><?php echo $resInner['org']; ?></a>&nbsp;
+            <?php endif ?>
+        <?php endforeach ?>
+    </div>
+<?php endif ?>
+
+<?php $this->endblock(); ?>
