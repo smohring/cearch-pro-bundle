@@ -2,7 +2,7 @@
     "name": "smohring/cearch-pro-bundle",
     "type": "contao-bundle",
     "description": "Contao CearchPro for Contao 4",
-    "license": "Creative Commons Attribution-ShareAlike 4.0 International License",
+    "license": "MIT",
     "authors": [
         {
             "name": "Steffen Mohring",
