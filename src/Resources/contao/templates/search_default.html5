@@ -1,6 +1,6 @@
 
 <div class="<?php echo $this->class; ?>">
-<h3><a href="<?php echo $this->href; ?>" title="<?php echo $this->title; ?>"><?php echo $this->link; ?></a> <span class="relevance">[<?php echo $this->relevance; ?>]</span></h3>
+<h3><a href="<?= $this->url ?>" title="<?= $this->title ?>"><?= $this->link ?></a> <span class="relevance">[<?= $this->relevance ?>]</span></h3>
 <?php if ($this->image): ?>
 	<p class="context"><img src="<?php echo $this->image;?>" /></p>
 <?php endif; ?>
