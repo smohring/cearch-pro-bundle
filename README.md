@@ -19,3 +19,4 @@ Contao > 4.4.*
 **HowTo:**
 * Enable CearchPro in Contao search engine module
 * Rebuild Search Index
+* Use the included **mod_search.html5** to show the "Did you mean..." results
